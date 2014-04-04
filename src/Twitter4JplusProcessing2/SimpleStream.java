@@ -84,7 +84,7 @@ public class SimpleStream {
 
         FilterQuery fq = new FilterQuery();
 
-        String keywords[] = {"climate"};
+        String keywords[] = {"leeds, Leeds"};
 
         fq.track(keywords);
 
