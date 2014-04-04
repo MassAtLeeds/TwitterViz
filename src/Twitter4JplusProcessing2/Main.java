@@ -17,10 +17,15 @@ public class Main extends PApplet {
         size(800, 800, P2D);
 
         try {
-            new TwitterStreamer();
+            new SimpleStream();
         } catch (Exception e) {
 
         }
+//        try {
+//            new TwitterStreamer();
+//        } catch (Exception e) {
+//
+//        }
 
     }
 

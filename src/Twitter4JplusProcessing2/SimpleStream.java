@@ -17,13 +17,18 @@ import twitter4j.conf.ConfigurationBuilder;
  */
 public class SimpleStream {
 
-    public static void main(String[] args) {
+    public SimpleStream() {
 
+//    public static void main(String[] args) {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
         cb.setOAuthConsumerKey("ua0EmDn1HgKXldXlzV78N5Waq");
+        //AuthSecrets: class hidden via gitignore, just returns secret strings
         cb.setOAuthConsumerSecret(AuthSecrets.getConsumerTokenSecret());
-        cb.setOAuthAccessToken(" 398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
+        //AuthSecrets: class hidden via gitignore, just returns secret strings
+        cb.setOAuthAccessToken("398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
+//        cb.setOAuthAccessToken("398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
+
         cb.setOAuthAccessTokenSecret(AuthSecrets.getAccessTokenSecret());
 
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
@@ -79,7 +84,7 @@ public class SimpleStream {
 
         FilterQuery fq = new FilterQuery();
 
-        String keywords[] = {"ireland"};
+        String keywords[] = {"climate"};
 
         fq.track(keywords);
 
