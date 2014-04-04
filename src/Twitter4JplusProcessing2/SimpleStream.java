@@ -1,6 +1,5 @@
 package Twitter4JplusProcessing2;
 
-
 import twitter4j.FilterQuery;
 import twitter4j.StallWarning;
 import twitter4j.Status;
@@ -22,10 +21,10 @@ public class SimpleStream {
 
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
-        cb.setOAuthConsumerKey("*************");
-        cb.setOAuthConsumerSecret("*************");
-        cb.setOAuthAccessToken("*************");
-        cb.setOAuthAccessTokenSecret("*************");
+        cb.setOAuthConsumerKey("ua0EmDn1HgKXldXlzV78N5Waq");
+        cb.setOAuthConsumerSecret(AuthSecrets.getConsumerTokenSecret());
+        cb.setOAuthAccessToken(" 398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
+        cb.setOAuthAccessTokenSecret(AuthSecrets.getAccessTokenSecret());
 
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
 

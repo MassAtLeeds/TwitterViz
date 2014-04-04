@@ -13,6 +13,9 @@ nbproject/
 #ignore anything in a lib directory
 lib/
 
+#ignore twitter secrets
+src/Twitter4JplusProcessing2/AuthSecrets.java
+
 #ignore data folder
 data/
 
