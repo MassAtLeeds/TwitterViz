@@ -103,7 +103,7 @@ Twitter's [streaming API](https://dev.twitter.com/docs/streaming-apis/parameters
 
 > "Bounding boxes do not act as filters for other filter parameters. For example track=twitter&locations=-122.75,36.8,-121.75,37.8 would match any tweets containing the term Twitter (even non-geo tweets) OR coming from the San Francisco area."
 
-So here's where I've got to: the stream is supplying geolocated tweets in a Leeds-ish bounding box (-2.17, 53.52, -1.20, 53.96) and I'm doing a test keyword filter once it comes through locally. Testing just with "the "/"The ", [here's a sample screenshot](https://www.dropbox.com/s/wtzy55hiq0cpllb/Screenshot%202014-04-06%2018.08.19.png) of the output.
+So here's where I've got to: the stream is supplying geolocated tweets in a Leeds-ish bounding box (-2.17, 53.52, -1.20, 53.96) and I'm doing a test keyword filter once it comes through locally. Testing just with "the "/"The ", [here's a sample screenshot](https://www.dropbox.com/s/sst6nzx9ewjvsez/Screenshot%202014-04-06%2018.38.22.png) of the output (with the keyword highlighted, makes it read a little odd...!)
 
 Here's a few things that might happen next:
 
