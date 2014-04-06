@@ -57,15 +57,24 @@ public class SimpleStream {
             public void onStatus(Status status) {
                 User user = status.getUser();
 
-                // gets Username
-                String username = status.getUser().getScreenName();
-                System.out.println(username);
-                String profileLocation = user.getLocation();
-                System.out.println(profileLocation);
-                long tweetId = status.getId();
-                System.out.println(tweetId);
+                //filter for keyword internally, since the streaming API is on "OR" relationship
                 String content = status.getText();
-                System.out.println(content + "\n");
+
+                if (content.contains("the ") || content.contains("The ")) {
+
+                    //http://stackoverflow.com/questions/1166905/hints-for-java-lang-string-replace-problem
+                    content = content.replaceAll("the ", "**THE** ");
+                    content = content.replaceAll("The ", "**THE** ");
+                    //get rest of output
+                    // gets Username
+                    String username = status.getUser().getScreenName();
+                    System.out.println(username);
+                    String profileLocation = user.getLocation();
+                    System.out.println(profileLocation);
+                    //long tweetId = status.getId();
+                    //System.out.println(tweetId);
+                    System.out.println(content + "\n");
+                }
 
             }
 
@@ -84,9 +93,13 @@ public class SimpleStream {
 
         FilterQuery fq = new FilterQuery();
 
-        String keywords[] = {"leeds, Leeds"};
-
-        fq.track(keywords);
+//        String keywords[] = {"cycle, Bicycle, bike"};
+//        fq.track(keywords);
+        //double e[][] = {{-122.75, 36.8}, {-121.75, 37.8}};
+        //california
+//        fq.locations(new double[][]{{-122.75, 36.8}, {-121.75, 37.8}});
+        //
+        fq.locations(new double[][]{{-2.17, 53.52}, {-1.20, 53.96}});
 
         twitterStream.addListener(listener);
         twitterStream.filter(fq);
