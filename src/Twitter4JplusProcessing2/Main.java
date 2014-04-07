@@ -5,9 +5,17 @@ package Twitter4JplusProcessing2;
  *
  * @author geodo
  */
+import de.fhpotsdam.unfolding.*;
+import de.fhpotsdam.unfolding.geo.*;
+import de.fhpotsdam.unfolding.marker.SimplePointMarker;
+import de.fhpotsdam.unfolding.utils.*;
 import processing.core.*;
+import twitter4j.GeoLocation;
 
 public class Main extends PApplet {
+
+    static UnfoldingMap map;
+//    static GeoLocation geoloc;
 
     @Override
     public void setup() {
@@ -16,24 +24,26 @@ public class Main extends PApplet {
         //Both P2D and P3D use openGL by default
         size(800, 800, P2D);
 
+        map = new UnfoldingMap(this);
+        map.zoomAndPanTo(new Location(53.7997, -1.5492), 10);
+        MapUtils.createDefaultEventDispatcher(this, map);
+
         try {
             new SimpleStream();
         } catch (Exception e) {
 
         }
-//        try {
-//            new TwitterStreamer();
-//        } catch (Exception e) {
-//
-//        }
 
     }
 
     @Override
     public void draw() {
 
-        background(255);
-        line(0, 0, width, height);
+        try {
+            map.draw();
+        } catch (Exception e) {
+
+        }
 
     }
 

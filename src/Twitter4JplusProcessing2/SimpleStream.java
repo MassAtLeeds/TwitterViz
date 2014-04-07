@@ -1,6 +1,10 @@
 package Twitter4JplusProcessing2;
 
+import static Twitter4JplusProcessing2.Main.map;
+import de.fhpotsdam.unfolding.geo.Location;
+import de.fhpotsdam.unfolding.marker.SimplePointMarker;
 import twitter4j.FilterQuery;
+import twitter4j.GeoLocation;
 import twitter4j.StallWarning;
 import twitter4j.Status;
 import twitter4j.StatusDeletionNotice;
@@ -60,11 +64,12 @@ public class SimpleStream {
                 //filter for keyword internally, since the streaming API is on "OR" relationship
                 String content = status.getText();
 
-                if (content.contains("the ") || content.contains("The ")) {
+//                if (content.contains("the ") || content.contains("The ")) {
+                if (true) {
 
                     //http://stackoverflow.com/questions/1166905/hints-for-java-lang-string-replace-problem
-                    content = content.replaceAll("the ", "**THE** ");
-                    content = content.replaceAll("The ", "**THE** ");
+//                    content = content.replaceAll("the ", "**THE** ");
+//                    content = content.replaceAll("The ", "**THE** ");
                     //get rest of output
                     // gets Username
                     String username = status.getUser().getScreenName();
@@ -74,6 +79,11 @@ public class SimpleStream {
                     //long tweetId = status.getId();
                     //System.out.println(tweetId);
                     System.out.println(content + "\n");
+
+                    GeoLocation geoloc = status.getGeoLocation();
+
+                    map.addMarker(new SimplePointMarker(new Location(geoloc.getLatitude(), geoloc.getLongitude())));
+
                 }
 
             }
