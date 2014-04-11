@@ -31,4 +31,5 @@ Git Bash.lnk
 #don't sync bytecode
 *.class
 
-
+#ignore config file (but provide example one)
+tw.properties

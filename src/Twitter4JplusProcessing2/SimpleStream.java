@@ -26,15 +26,16 @@ public class SimpleStream {
 //    public static void main(String[] args) {
         ConfigurationBuilder cb = new ConfigurationBuilder();
         cb.setDebugEnabled(true);
-        cb.setOAuthConsumerKey("ua0EmDn1HgKXldXlzV78N5Waq");
-        //AuthSecrets: class hidden via gitignore, just returns secret strings
-        cb.setOAuthConsumerSecret(AuthSecrets.getConsumerTokenSecret());
-        //AuthSecrets: class hidden via gitignore, just returns secret strings
-        cb.setOAuthAccessToken("398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
+        
+        cb.setOAuthConsumerKey(Utils.consumerTokenKey);
+        cb.setOAuthConsumerSecret(Utils.consumerTokenSecret);
+        cb.setOAuthAccessToken(Utils.accessTokenKey);
+        cb.setOAuthAccessTokenSecret(Utils.accessTokenSecret);
+
+//        cb.setOAuthConsumerKey("ua0EmDn1HgKXldXlzV78N5Waq");
+//        cb.setOAuthConsumerSecret(AuthSecrets.getConsumerTokenSecret());
 //        cb.setOAuthAccessToken("398915413-QCdAtpoathxwghvFHdMS0csnr8sz4tAAmB6m9URF");
-
-        cb.setOAuthAccessTokenSecret(AuthSecrets.getAccessTokenSecret());
-
+//        cb.setOAuthAccessTokenSecret(AuthSecrets.getAccessTokenSecret());
         TwitterStream twitterStream = new TwitterStreamFactory(cb.build()).getInstance();
 
         StatusListener listener = new StatusListener() {

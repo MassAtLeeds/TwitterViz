@@ -28,6 +28,14 @@ public class Main extends PApplet {
         map.zoomAndPanTo(new Location(53.7997, -1.5492), 10);
         MapUtils.createDefaultEventDispatcher(this, map);
 
+        //constructor gets properties from tw.properties
+        new Utils();
+        
+        System.out.println("access key: " + Utils.accessTokenKey);
+        System.out.println("access secret: " + Utils.accessTokenSecret);
+        System.out.println("consumer key: " + Utils.consumerTokenKey);
+        System.out.println("consumer secret: " + Utils.consumerTokenSecret);
+        
         try {
             new SimpleStream();
         } catch (Exception e) {
